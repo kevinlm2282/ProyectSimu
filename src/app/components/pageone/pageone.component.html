@@ -1,0 +1,70 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <div class="container px-3">
+        <!-- <a class="navbar-brand" href="#!">Generador de numeros aleatorios</a> -->
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+                <li class="nav-item"><a class="nav-link active" aria-current="page" href="#!" [routerLink]="['/']" routerLinkActive="router-link-active" >Home</a></li>
+                <!-- <li class="nav-item"><a class="nav-link" href="#!">About</a></li> -->
+                <li class="nav-item"><a class="nav-link" href="#!">Contact</a></li>
+                <!-- <li class="nav-item"><a class="nav-link" href="#!">Services</a></li> -->
+            </ul>
+        </div>
+    </div>
+</nav>
+<!-- Header-->
+<header class="bg-dark py-0">
+    <div class="container px-1">
+        <div class="row gx-5 justify-content-center">
+            <div class="col-lg-6">
+                <div class="text-center my-5">
+                    <h1 class="display-5 fw-bolder text-white mb-2">Cuadrados medios</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+<section class="py-5 border-bottom" id="features">
+    <div class="container px-5 my-5">
+        <div class="row gx-5">
+            <div class="shadow p-3 mb-5 bg-white rounded col-lg-4 mb-5 mb-lg-0">
+                <h2 class="h4 fw-bolder">Ingresar datos</h2>
+                <div class="container">
+                  <div class="row">
+                    <div class="col-4">
+                      <input class="form-control col-4 " type="number" placeholder="ingresar numero semilla"  [(ngModel)]="seed">
+                      <br>
+                      <input class="form-control" type="number" placeholder="ingresar n" [(ngModel)]="n">
+                    </div>
+                    <div class="col-4">
+                      <p>Los digitos son: {{data$}} </p>
+                      <p>El numero semilla es: {{seed}} </p>
+                      <p>N es: {{n}}</p>
+                    </div>
+                  </div>
+
+                </div>
+                <button class="btn btn-success" (click)="calcularNumerosRandom()">Calcular</button>
+                <button class="btn btn-danger" (click)="reset()">Reset</button>
+                <table class="table">
+                    <thead class="table-dark">
+                      <tr>
+                        <th scope="col">#</th>
+                        <th scope="col">semilla</th>
+                        <th scope="col">cuadrado</th>
+                        <th scope="col">numero pseudoaleatorio</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr *ngFor="let item of randomNumber$">
+                        <th>{{item.index + 1}}</th>
+                        <td>{{item.seed}}</td>
+                        <td>{{item.square}}</td>
+                        <td>{{item.random}}</td>
+                      </tr>
+                    </tbody>
+                  </table>
+            </div>
+        </div>
+    </div>
+</section>
